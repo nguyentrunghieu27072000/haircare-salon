@@ -78,6 +78,7 @@ export class BookingService {
   constructor(private readonly prisma: PrismaService) {}
 
   async getBookingPageData() {
+    Promise.resolve();
     const categoryList = await this.prisma.serviceCategory.findMany({
       orderBy: { order: 'asc' },
       include: { services: { orderBy: { price: 'asc' } } },
@@ -112,7 +113,9 @@ export class BookingService {
 
   /** Returns the id of the created booking, or null when no valid service was chosen. */
   async createBooking(input: NewBooking): Promise<string | null> {
-    const chosen = await this.prisma.service.findMany({ where: { id: { in: input.serviceIds } } });
+    const chosen = await this.prisma.service.findMany({
+      where: { id: { in: input.serviceIds } },
+    });
     if (!chosen.length) return null;
 
     const ymd = toSalonDateString(new Date(input.date * 1000));
