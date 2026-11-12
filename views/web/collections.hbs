@@ -1,0 +1,39 @@
+<link rel="stylesheet" href="/css/store.css"></link>
+<div style="height: 85px;background-color: #000;"></div>
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="title-invole-store">
+            <span class="text-title">Sản phẩm mới</span>
+        </div>
+        <div class="collections-product">
+            <div class="row">
+                {{#each products}}
+                <div class="col-sm-6 col-md-4 col-lg-3">
+                    <div class="product-item">
+                        <div class="item-info">
+                            <a style="height: 100%;" href="product-details?id={{id}}" class="team" title="{{name}}">
+                                <div class="img" style="height:300px;background-image: url(/haircare/images/{{image}});"></div>
+                                <span>{{name}}</span>
+                                <span>{{number_format price}}₫</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                {{/each}}
+                {{#times 29}}
+                <div class="col-sm-6 col-md-4 col-lg-3">
+                    <div class="product-item">
+                        <div class="item-info">
+                            <a style="height: 100%;" href="#" class="team" title="Lăn Khử Mùi Ngăn Mồ Hôi Chuyên Biệt Etiaxil Deodorant Douceur 48h Roll-On 50ML">
+                                <div class="img" style="height:300px;background-image: url(/haircare/images/product{{rand 1 2}}.jpg);"></div>
+                                <span>Lăn Khử Mùi Ngăn Mồ Hôi Chuyên Biệt Etiaxil Deodorant Douceur 48h Roll-On 50ML</span>
+                                <span>{{number_format 23700000}}₫</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                {{/times}}
+            </div>
+        </div>
+    </div>
+</div>
