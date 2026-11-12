@@ -1,12 +1,21 @@
-pipeline {
-  agent any
-  tools { nodejs 'node24' }
-  stages {
-    stage('Check') {
+    stage('Install') {
       steps {
-        sh 'node -v && npm -v'
-        sh 'docker version'
+        sh 'npm ci'
       }
     }
-  }
-}
+    stage('Lint') {
+      steps {
+        sh 'npm run lint'
+      }
+    }
+    stage('Test') {
+      steps {
+        sh 'npm test'
+      }
+    }
+    stage('Build') {
+      steps {
+        sh 'npm run build'
+        sh 'test -f dist/main.js'
+      }
+    }
