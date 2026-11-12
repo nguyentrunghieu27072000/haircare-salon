@@ -75,3 +75,4 @@ npm run db:seed     # dữ liệu mẫu
 - Prisma 6.x được dùng vì Prisma 7 chưa hỗ trợ MongoDB (bản 8 có nhưng còn RC).
 - Xác thực OTP khi đăng ký dùng Firebase phía client (`public/js/main2.js`), cấu hình Firebase nằm trong file đó.
 - Trang admin mới chỉ có giao diện đăng nhập, chưa có nghiệp vụ.
+# haircare-salon-
