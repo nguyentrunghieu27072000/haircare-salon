@@ -1,3 +1,7 @@
+pipeline {
+  agent any
+  tools { nodejs 'node24' }
+  stages {
     stage('Install') {
       steps {
         sh 'npm ci'
@@ -19,3 +23,5 @@
         sh 'test -f dist/main.js'
       }
     }
+  }
+}
