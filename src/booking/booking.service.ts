@@ -78,7 +78,7 @@ export class BookingService {
   constructor(private readonly prisma: PrismaService) {}
 
   async getBookingPageData() {
-    Promise.resolve();
+    console.log(111);
     const categoryList = await this.prisma.serviceCategory.findMany({
       orderBy: { order: 'asc' },
       include: { services: { orderBy: { price: 'asc' } } },
