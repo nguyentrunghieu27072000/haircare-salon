@@ -2,7 +2,7 @@ import { buildBookingDays, formatPriceK, toSalonDateString } from './booking.ser
 
 describe('booking helpers', () => {
   it('formats prices as thousands with a K suffix', () => {
-    expect(formatPriceK(100000)).toBe('999K');
+    expect(formatPriceK(100000)).toBe('100K');
     expect(formatPriceK(1500000)).toBe('1500K');
   });
 
