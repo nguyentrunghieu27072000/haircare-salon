@@ -1,6 +1,11 @@
 pipeline {
   agent any
   tools { nodejs 'node24' }
+  options {
+    timestamps()
+    timeout(time: 20, unit: 'MINUTES')
+    buildDiscarder(logRotator(numToKeepStr: '10'))
+  }
   stages {
     stage('Install') {
       steps {
@@ -23,5 +28,9 @@ pipeline {
         sh 'test -f dist/main.js'
       }
     }
+  }
+  post {
+    success { echo 'Build OK' }
+    failure { echo 'Build FAILED' }
   }
 }
